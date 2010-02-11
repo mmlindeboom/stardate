@@ -1,6 +1,4 @@
-# Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-  
   def vendor_name(thing)
     return '&nbsp;' unless thing.vendor
     link_to h(thing.vendor.name), thing.vendor
@@ -61,5 +59,5 @@ module ApplicationHelper
   def date_link(date)
     date_path(:year=>date.year, :month=>date.month, :day=>date.day)
   end
-
+  
 end

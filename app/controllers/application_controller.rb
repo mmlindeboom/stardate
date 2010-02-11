@@ -1,12 +1,14 @@
 class ApplicationController < ActionController::Base
   include AuthorizationSystem
+  protect_from_forgery
   
   # By default all pages are protected
   # Use skip_before_filter on public pages
   before_filter :login_required
     
   # Don't show passwords in the log
-  filter_parameter_logging 'password'
+  # filter_parameter_logging 'password'
+  # Now handled in application.rb
   
   before_filter :set_time_zone
   
@@ -14,5 +16,5 @@ class ApplicationController < ActionController::Base
   def set_time_zone
     Time.zone = current_user.time_zone if logged_in?
   end
-
+  
 end
